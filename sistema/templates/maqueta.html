@@ -1,0 +1,108 @@
+{% load staticfiles %}
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Página Muestra</title>
+    <meta name="description" content="Pagina completa con Flexbox"><!--Utilizamos el descriptor en meta para apoyar la busqueda de contenidos en la web-->
+    <meta name="viewport" content="width=device-widtg, user-scalable=no, initial-scale=1.0,maximun-scale=1.0,minimun-scale=1.0"><!--las escalas indican un punto inicial, la escala maxima y minima-->
+    <script src="{% static "prefix.js" %}" type="test/javascript"></script><!--Script para asegurar que en todos los navegadores y dispositivos el sitio se vea igual-->
+	<link rel="stylesheet" href="{% static 'css/jquery.bxslider.css' %}">
+	<link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+	<script src="{% static 'js/jquery.js' %}"></script>
+    <script src="{% static 'js/jquery.bxslider.min.js' %}"></script>
+</head>
+    <body>
+        <div class="contenedor">
+		<header>
+			<div class="logo">
+				<img src="{% static 'images/logo.png' %}" width="150" alt=""><!-- Imagen del logo que esta continada en el div class logo-->
+			</div>
+
+            <div>
+				{% if actual %}
+					<div class="logo">Bienvenido {{actual.username}}</div>
+					<button class= "out"><a href="{% url 'logout' %}">Salir</a></button>
+				{%endif%}
+			</div>  
+
+
+			<nav><!--Botones de distintas opciones de la pag-->
+				<a href="{% url 'inicio' %}">Inicio</a>
+				<a href="#">Quienes Somos</a>
+				<a href="#">Servicios</a>
+				<a href="#">Contáctanos</a>
+				<a href="{% url 'formulario'%}">Formulario</a>
+				<a href="{% url 'login'%}"> Iniciar Sesion  </a>
+				<a href="{% url 'lista'%}">Lista Mascotas </a>
+				<a href="{% url 'registrarse'%}"> Registrate  </a>
+				{% if request.user.is_staff	%}
+				<a href="{% url 'admin' %}">Administracion </a>
+				{% endif %}
+				<a href="{% url 'change_password' %}">Cambiar contraseña</a>
+				<a href="{% url 'logout' %}">Salir</a>
+			</nav>
+		
+			<div id="carrusel"><!--Carrusel que contiene imagenes  correspondientes a la pagina-->
+            <div><img src="{% static 'images/01.jpg' %}"></div>
+            <div><img src="{% static 'images/02.jpg' %}"></div>
+            <div><img src="{% static 'images/03.jpg' %}"></div>
+            <div><img src="{% static 'images/04.jpg' %}"></div>
+            <div><img src="{% static 'images/05.png' %}"></div>
+            </div>
+            
+			
+			<section class="redessociales"> <!--Botones de las redes sociales con sus imagenes-->
+				<a href="#"><img src = "{% static 'images/Facebook.png' %}" width="50"></a>
+				<a href="#"><img src = "{% static 'images/Google-Plus.png' %}" width="50"></a>
+				<a href="#"><img src = "{% static 'images/Instagram.png' %}" width="50"></a>
+				<a href="#"><img src = "{% static 'images/correo.png' %}" width="50"></a>
+			</section>
+			 
+		</header>
+		
+
+        {% block principal %}
+        {% endblock  %}
+		<section>
+            <div class="contenido">
+                {% block Login%}
+                {% endblock %}
+                <div class="lista">
+                    {% block Lista%}
+                    {% endblock %}
+                </div>
+                <div class="formulario">
+                    {% block Formulario%}
+                    {% endblock %}
+                </div>
+            </div>
+        </section>
+		
+		
+
+		<footer>
+				<div class="collage">	<!-- DIv collage donde se encuentran imagenes correspondiente a la imagen-->
+						<div class="caja">
+							<img src="{% static 'imagescollage/nueve.jpg' %}" alt="Nueve">
+							<img src="{% static 'imagescollage/siete.jpg' %}" alt="Nueve">
+							<img src="{% static 'imagescollage/ocho.jpg' %}" alt="Nueve">
+						</div>
+						<div class="caja largo">
+							<img src="{% static 'imagescollage/cuatro.jpg' %}" alt="Nueve"style="height:45%">
+							<img src="{% static 'imagescollage/cinco.jpg' %}" alt="Nueve"style="height:45%">
+						</div>
+						<div class="caja">
+							<img src="{% static 'imagescollage/seis.jpg' %}" alt="Nueve" style="height:62%">
+							<img src="{% static 'imagescollage/uno.jpg' %}" alt="Nueve">
+						</div>
+						
+					</div>      
+		<footer>
+		
+	</div>
+	
+	
+    </body>
+	<script src="{% static 'js/codigo.js' %}"></script>
+</html>

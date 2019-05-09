@@ -1,0 +1,61 @@
+{% extends "maqueta.html" %}
+{% block Lista %}
+
+
+<h1 >Lista de Mascotas</h1>
+{% if mascota %}
+<table id="customers"> <!-- Tabla que Muestra en columna y filas las mascota con sus atributos -->
+    <tr>
+        <td> Codigo Mascota </td> <td> Foto Mascota</td><td> Nombre Mascota </td><td> Raza Dominante Mascota </td> <td> Descripcion </td> <td> Estado </td> 
+    </tr>
+    {% for m in mascota %}
+    <tr>
+        <td>{{m.codigoMascota}}</td> <td> <img src="/media/{{m.fotoMascota}}" width="30%" alt=""> </td><td>{{m.nombreMascota}}</td> <td>{{m.razaMascota}}</td> <td>{{m.descripcionMascota}}</td> <td>{{m.estado}}</td>                    
+    </tr>
+    {% endfor %}
+</table>
+{% else %}
+<h2 style="background: #33ffb5">No hay Mascotas registradas</h2>
+{% endif %}
+
+<div class="pagination"> <!-- Paginador de la lista mascota  -->
+ 
+    {% if mascota.has_previous %}
+    <button>
+        <a href="?page=1">First</a>  
+    </button>
+    <button>
+      <a href="?page={{ mascota.previous_page_number }}">Previous</a>  
+    </button>
+    
+    {% endif %}
+  
+    {% for num in mascota.paginator.page_range %}
+  
+      {% if mascota.number == num %}
+      <button>
+        <span>{{ num }}</span>
+    </button>
+      
+      {% elif num > mascota.number|add:'-3' and num < mascota.number|add:'3' %}
+      <button>
+        <a href="?page={{ num }}">{{ num }}</a>
+      </button>
+      
+      {% endif %}
+  
+    {% endfor %}
+  
+    {% if mascota.has_next %}
+    <button>
+      <a href="?page={{ mascota.next_page_number }}">Next</a>  
+    </button>
+    <button>
+     <a href="?page={{ mascota.paginator.num_pages }}">Last</a>   
+    </button>
+    
+    {% endif %}
+   
+  </div>
+
+{% endblock %}

@@ -1,0 +1,103 @@
+{% extends "maqueta.html" %}
+{% load staticfiles %}
+{% block principal %}
+<!doctype html>
+<html>
+    <head>
+		<meta name="viewport" content="with-device-with, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0>
+		<meta charset="utf-8">
+        <script src="{% static "js/jqueryformu.js" %}"> </script>
+        <link rel="stylesheet" href="{% static'css/estiloformu.css' %}"> 
+		<title>Validacion Jquery</title>
+    </head>
+    <body>
+       
+        <div class="areaTrabajo">
+            <img src="{% static 'imagesformu/logo.png' %}" width="200" alt="">
+			<h1>Contactanos</h1>
+			
+            <form id="registration_form" action="#" method="post"> <!--Form donde contiene el correo,run,nombre,fecha,telefono,region,ciudad y tipo vivienda-->
+                <table>
+                    <tr>
+					<!-- Correo-->
+                        <td>Correo Electrónico:</td><td> <input type="email" class="form_text" name="email" id="email"> <p class="error" id="erroremail"></p></td>
+				                                       
+                    </tr>
+                    
+					<tr>
+					<!--Run-->
+                        <td>Run:</td><td><input type="text" class="form_text" placeholder="Ej: 11111111-1" name="run" id="idrun"> <p class="error" id="errorrun"></p></td>
+                    </tr>
+					<!--Nombre-->
+					    <td>Nombre Completo:</td><td><input type="nombre" class="form_text" name="nombre" id="idnombre"> <p class="error" id="errornombre"></span></td>
+                      
+                    </tr>
+					<!--Fecha-->
+					    <td>Fecha de Nacimiento:</td><td><input type="date" class="form_text" name="fecha" id="idfecha"> <p class="error" id="errorfecha"></p></td>
+                        
+                    </tr>
+					<!--Telefono-->
+					    <td>Telefono de contacto:</td><td><input type="text" class="form_text" placeholder="Ej: 987654321" name="telefono" id="idtelefono"> <p class="error" id="errortelefono"></p></td>
+              
+                    </tr>
+					
+					 <tr>
+					 <!--Region-->
+						<td>Region:</td>
+							<td>
+								<select name="Región" id="Región">
+									<option selected value="0">Selecione una opcion</option>
+									<option value="1">Metropolitana</option>
+									<option value="2">Valparaiso</option>
+									<
+								</select>
+								<p class="error" id="errorregion"></p>
+							</td>
+					</tr>	
+						
+                    </tr>
+					<tr>
+					<!--Ciudad-->
+						<td>Ciudad:</td>
+							<td>
+								<select name="Ciudad" id="Ciudad">
+									<option selected value="0">Selecione una opcion</option>
+									<option value="1">Santiago</option>
+									<option value="2">Valparaiso</option>
+								</select>
+								<p class="error" id="errorciudad"></p>
+							</td>
+					</tr>
+					
+						<tr>
+				    <!--Tipo de casa-->
+						<td>Tipo De Casa:</td>
+							<td>
+								<select name="Tipovivienda" id="Tipovivienda">
+									<option selected value="0">Selecione una opcion</option>
+									<option value="1">Casa con patio grande</option>
+									<option value="2">Casa con patio pequeño</option>
+									<option value="3">Casa sin patio</option>
+									<option value="4">Departamento</option>
+								</select>
+								<p class="error" id="errorvivienda"></p>
+							</td>
+					</tr>
+					    
+                        
+                    </tr>
+					
+					<tr>
+					<!--Boton Enviar-->
+                        <td></td><td><input type="submit" value="Enviar" class="btn-enviar" id="btn-enviar"></td><td></td>
+                    </tr>
+                </table>
+                
+            </form>
+        </div>
+        
+    <script  src="{% static 'js/codigoformu.js' %}"></script>    
+    </body>
+</html>
+
+{% endblock %}

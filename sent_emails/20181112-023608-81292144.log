@@ -1,0 +1,25 @@
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Subject: Password reset on localhost:8000
+From: webmaster@localhost
+To: richard.aninir.gutierrez@gmail.com
+Date: Mon, 12 Nov 2018 05:36:08 -0000
+Message-ID: <154200096817.2544.15952668994290030637@DESKTOP-LLS2HIF>
+
+
+You're receiving this email because you requested a password reset for your user account at localhost:8000.
+
+Please go to the following page and choose a new password:
+
+http://localhost:8000/reset/MTc/518-19e05da5da2db4aafa43/
+
+Your username, in case you've forgotten: richard
+
+Thanks for using our site!
+
+The localhost:8000 team
+
+
+
+-------------------------------------------------------------------------------

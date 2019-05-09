@@ -1,0 +1,12 @@
+{% extends "maqueta.html" %}
+{% block Login%}
+
+<form method="POST" style="background: #33ffb5">
+    {%csrf_token%}
+    {{form.as_p}}
+    <input type="submit" value="Ingresar al Sistema">
+</form>
+
+<a href="{% url 'password_reset'%}"> Olvide mi contrasena  </a>
+
+{% endblock %}
