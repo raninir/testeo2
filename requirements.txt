@@ -17,7 +17,7 @@ django-progressive-web-app==0.1.1
 django-secure==1.0.1
 django-social-api==0.1.1
 django-social-auth==0.7.28
-djangorestframework==3.9.0
+djangorestframework==3.11.2
 gunicorn==19.9.0
 httplib2==0.12.0
 idna==2.7
